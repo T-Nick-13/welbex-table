@@ -1,0 +1,22 @@
+.table {
+  background: #303030;
+  border-spacing: 0;
+  padding: 7px;
+  border-radius: 7px;
+  text-align: center;
+}
+
+.table__row td {
+  height: 28px;
+  min-width: 130px;
+}
+
+.table__head-row th {
+  padding-bottom: 5px;
+  font-weight: normal;
+  color: #fff;
+}
+
+.table__row:nth-of-type(odd) {
+  background: #404040;
+}
