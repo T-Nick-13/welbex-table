@@ -1,0 +1,16 @@
+:root {
+  --page-width: 95%;
+  --header-font: 18px;
+}
+
+.page {
+  min-height: 100vh;
+  background-color: rgb(35 35 35);
+  font-family: Century Gothic, Arial, Helvetica, Sans-serif;
+}
+
+.page__container {
+  margin: auto;
+}
+
+
