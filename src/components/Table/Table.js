@@ -1,7 +1,8 @@
 import React from 'react';
+import Record from '../Record/Record';
 
 
-function Table() {
+function Table(props) {
   return (
     <table className="table">
       <thead>
@@ -13,30 +14,17 @@ function Table() {
         </tr>
       </thead>
       <tbody>
-        <tr className="table__row">
-          <td>20.10.22</td>
-          <td>Ходьба</td>
-          <td>200ккал</td>
-          <td>2км</td>
-        </tr>
-        <tr className="table__row">
-          <td>20.10.22</td>
-          <td>Бег</td>
-          <td>300ккал</td>
-          <td>2км</td>
-        </tr>
-        <tr className="table__row">
-          <td>20.10.22</td>
-          <td>Бег</td>
-          <td>300ккал</td>
-          <td>2км</td>
-        </tr>
-        <tr className="table__row">
-          <td>20.10.22</td>
-          <td>Бег</td>
-          <td>300ккал</td>
-          <td>2км</td>
-        </tr>
+        {props.records.map((rec) => {
+          return (
+            <Record
+              key={rec.id}
+              date={rec.date}
+              title={rec.title}
+              amount={rec.amount}
+              distance={rec.distance}
+            />
+          )
+        })}
       </tbody>
     </table>
   );

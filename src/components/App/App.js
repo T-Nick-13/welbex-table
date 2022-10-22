@@ -7,7 +7,7 @@ import Main from '../Main/Main';
 
 function App() {
 
-  const [recrods, setRecords] = React.useState([]);
+  const [records, setRecords] = React.useState([]);
 
   const api = new Api ({
     baseUrl: MAIN_API,
@@ -22,8 +22,7 @@ function App() {
     ])
     .then((records) => {
       localStorage.setItem("records", JSON.stringify(records));
-      setRecords(JSON.parse(localStorage.getItem("records")));
-      debugger
+      setRecords(JSON.parse(localStorage.getItem("records"))[0]);
     })
     .catch((err) => {
       console.log(err);
@@ -33,7 +32,9 @@ function App() {
   return (
     <div className="page">
       <div className="page__container">
-        <Main />
+        <Main
+          records={records}
+        />
       </div>
     </div>
   );
