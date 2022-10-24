@@ -11,12 +11,26 @@
   min-width: 130px;
 }
 
-.table__head-row th {
+.table__head-row > th {
   padding-bottom: 5px;
   font-weight: normal;
   color: #fff;
+  position: relative;
 }
 
 .table__row:nth-of-type(odd) {
   background: #404040;
+}
+
+.table__sort-logo {
+  width: 21px;
+  margin-left: 3px;
+  position: absolute;
+  bottom: 5px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.table__sort-logo_active {
+  opacity: 0.6;
 }

@@ -1,16 +1,26 @@
 import React from 'react';
 import Record from '../Record/Record';
+import TableHeader from '../TableHeader/TableHeader';
 
 
 function Table(props) {
+
+
   return (
     <table className="table">
       <thead>
         <tr className="table__head-row">
-          <th>Дата</th>
-          <th>Название</th>
-          <th>Количество</th>
-          <th>Расстояние</th>
+          {Array.from(props.set).splice(1, 4).map((i) => {
+            return (
+              <TableHeader
+                key={i}
+                value={i}
+                onThClick={props.onThClick}
+                set={Array.from(props.set)}
+                activeColumns={props.activeColumns}
+              />
+            )
+          })}
         </tr>
       </thead>
       <tbody>
