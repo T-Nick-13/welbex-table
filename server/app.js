@@ -3,7 +3,7 @@ require('dotenv').config();
 const cors = require('cors');
 const recordRouter = require('./routes/record');
 
-const PORT = process.env.PORT || 3001;
+const { PORT = 3003 } = process.env;
 
 const app = express();
 
