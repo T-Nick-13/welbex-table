@@ -33,7 +33,7 @@ class RecordContrloller {
   async deleteRecord(req, res) {
     const id = req.params.id;
     const record = await db.query(
-      'DELETE * FROM activity where id = $1', [id]
+      'DELETE FROM activity where id = $1', [id]
     );
     res.json(record.rows[0]);
   }

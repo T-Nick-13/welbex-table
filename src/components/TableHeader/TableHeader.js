@@ -12,11 +12,10 @@ function TableHeader(props) {
     }
   }
 
-  const headerTitle =
-    props.value === 'date' ? 'Дата' :
-    props.value === 'title' ? 'Название' :
-    props.value === 'amount' ? 'Количество' :
-    props.value === 'distance' ? 'Расстояние' : 'Другое';
+  const headerTitle = (props.value === 'date') ? 'Дата' :
+    (props.value === 'title') ? 'Название' :
+    (props.value === 'amount') ? 'Количество' :
+    (props.value === 'distance') ? 'Расстояние' : 'Другое';
 
   return (
       <th onClick={handleSorting} data-title={props.value}>

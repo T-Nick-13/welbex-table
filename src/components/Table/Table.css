@@ -8,14 +8,26 @@
 
 .table__row td {
   height: 28px;
-  min-width: 130px;
+
 }
 
 .table__head-row > th {
   padding-bottom: 5px;
   font-weight: normal;
-  color: #fff;
+  color: #868686;
   position: relative;
+  transition: all 0.3s;
+  min-width: 130px;
+}
+
+.table__head-row > th:hover {
+  cursor: pointer;
+  color: #fff;
+}
+
+.table__head-row > th:hover[data-title="date"] {
+  cursor: default;
+  color: #868686;
 }
 
 .table__row:nth-of-type(odd) {

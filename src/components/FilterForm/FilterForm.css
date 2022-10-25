@@ -1,0 +1,19 @@
+.filterForm {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.filterForm__select {
+  background: #aeaeae;
+  border-radius: 5px;
+  font-size: 14px;
+  height: 25px;
+  margin-bottom: 3px;
+}
+
+.filterForm__input {
+  font-size: 14px;
+  border-radius: 5px;
+  height: 20px;
+}
