@@ -18,11 +18,11 @@ API: <https://api.table.netitov.ru/>
 
 ### Изменения данных в таблице на сервере
 
-1. Получение всех данных из таблицы
+1. Получение всех данных из таблицы  
 `GET https://api.table.netitov.ru/`
 
-2. Добавление данных в таблицу
-`POST https://api.table.netitov.ru/`
+2. Добавление данных в таблицу  
+`POST https://api.table.netitov.ru/`  
 `Body (пример):{
 "date":
     "2022-10-02",
@@ -32,7 +32,7 @@ API: <https://api.table.netitov.ru/>
 }
 `
 
-3. Удаление строки из таблицы
+3. Удаление строки из таблицы  
 `DELETE https://api.table.netitov.ru/<id строки>`
 
 
