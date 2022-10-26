@@ -1,7 +1,7 @@
 
 # Трекер активности
 
-Ссылка на сервис: <https://activity.netitov.ru/>
+Ссылка на сервис: <https://activity.netitov.ru/>  
 API: <https://api.table.netitov.ru/>
 
 ## Суть проекта
