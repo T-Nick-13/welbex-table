@@ -46,3 +46,17 @@
 .table__sort-logo_active {
   opacity: 0.6;
 }
+
+@media (max-width: 580px) {
+  .table {
+    font-size: 14px;
+  }
+
+  .table__head-row > th {
+    min-width: 85px;
+  }
+
+  .table__sort-logo {
+    display: none;
+  }
+}

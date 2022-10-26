@@ -12,3 +12,22 @@
 
 }
 
+@media (max-width: 740px) {
+  .main {
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+  }
+}
+
+@media (max-width: 580px) {
+  .main__heading {
+    font-size: 27px;
+  }
+
+  .main__description {
+    font-size: 15px;
+  }
+
+}
+
