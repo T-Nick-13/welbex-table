@@ -10,8 +10,8 @@ let actveColumnSet = new Set([]);
 function App() {
   const [records, setRecords] = React.useState([]);
   const [activeColumns, setActiveColumns] = React.useState([]);
+  const [initialRecords, setInitialRecords] = React.useState([]);
 
-  const lsData = JSON.parse(localStorage.getItem("data"))[0];
 
   const api = new Api ({
     baseUrl: MAIN_API,
@@ -26,6 +26,8 @@ function App() {
     ])
     .then((data) => {
       localStorage.setItem("data", JSON.stringify(data));
+      const lsData = JSON.parse(localStorage.getItem("data"))[0];
+      setInitialRecords(lsData);
       setRecords(lsData);//строки таблицы из local storage
       lsData.forEach((i) => { //шапка таблицы из local storage
         Object.keys(i).forEach((k) => {
@@ -76,22 +78,24 @@ function App() {
       (data.column === 'Количество') ? 'amount' :
       (data.column === 'Расстояние') ? 'distance' : 'Другое';
 
-    const foundData = lsData.filter((i) => {
+    const foundData = initialRecords.filter((i) => {
       const inputDataType =
-        (data.compare === 'Содержит') ? String(data.text) :
+        (data.compare === 'Содержит') ? data.text.toLowerCase() :
         (typeof(i[key]) === 'number') ? Number(data.text) :
+        ((data.compare === 'Меньше' || data.compare === 'Больше') && (data.column === 'Дата')) ? new Date(data.text.replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')) :
         data.text.toLowerCase();
 
-      const tableDataType = (data.compare === 'Содержит' && typeof(i[key]) === 'number') ? String(i[key]):
-        ((data.column === 'Дата') && (data.compare === 'Содержит' || 'Равно')) ? new Date(i[key]).toLocaleDateString() :
-        ((data.compare === 'Меньше' || 'Больше' || (typeof(i[key]) === 'number')) && (data.column === 'Дата')) ? i[key] :
+      const tableDataType = (data.compare === 'Содержит' && typeof(i[key]) === 'number') ? String(i[key]) :
         (typeof(i[key]) === 'number') ? i[key] :
+        ((data.column === 'Дата') && (data.compare === 'Содержит' || data.compare === 'Равно')) ? new Date(i[key]).toLocaleDateString() :
+        ((data.compare === 'Меньше' || data.compare === 'Больше') && (data.column === 'Дата')) ? new Date(i[key]) :
         i[key].toLowerCase();
 
       if (data.compare === 'Содержит') {
         return tableDataType.includes(inputDataType);
       }
       if (data.compare === 'Равно') {
+
         return tableDataType === inputDataType;
       }
       if (data.compare === 'Больше') {
@@ -106,7 +110,7 @@ function App() {
 
   function handleFilter(data) {
     if (data.text.length === 0) {
-      setRecords(lsData);
+      setRecords(initialRecords);
     } else {
       selectFilterColumn(data);
     }

@@ -2,7 +2,7 @@
 # Трекер активности
 
 Ссылка на сервис: <https://activity.netitov.ru/>
-Сервис используется для управления сайтом портфолио: <https://api.table.netitov.ru/>
+API: <https://api.table.netitov.ru/>
 
 ## Суть проекта
 
@@ -16,9 +16,27 @@
 
 * добавление/удаление данных в таблице через Postman
 
+### Изменения данных в таблице на сервере
+
+1. Получение всех данных из таблицы
+`GET https://api.table.netitov.ru/`
+
+2. Добавление данных в таблицу
+`POST https://api.table.netitov.ru/`
+`Body (пример):{
+"date":
+    "2022-10-02",
+    "title": "Бег",
+    "amount": 98,
+    "distance": 7
+}
+`
+
+3. Удаление строки из таблицы
+`DELETE https://api.table.netitov.ru/<id строки>`
 
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
